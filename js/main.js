@@ -8,16 +8,19 @@ const apiDataLoad = ()=>{
 }
 const getData = (countries) => {
     countries.forEach(country => {
-        console.log(country.capital);
         const div = document.createElement('div');
         div.classList.add('country-container')
         div.innerHTML = `
-        <h3 class="country-name text-4xl">${country.name.common}</h3>
-        <p>${country.capital}</p>
-        <button>See Details</button>
+        <h3 class="country-name text-4xl font-bold mb-2">${country.name.common}</h3>
+        <p class="mb-2 text-2xl">${country.capital}</p>
+        <a href="./details.html">
+        <button onclick="details('${country.name.common}')" class= "bg-white rounded-lg text-2xl py-1 px-2 border-2">See Details</button></a>
         `
         main.appendChild(div);
         
     });
 }
+const details =(name) =>{
+    console.log(name);
+} 
 apiDataLoad();
