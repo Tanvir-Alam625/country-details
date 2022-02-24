@@ -29,12 +29,17 @@ const details =(name) =>{
     .then(data => getDetails(data[0]))
 } 
 const getDetails = (name)=>{
-    
     const detail = document.createElement('div');
+    mainDetail.innerHTML = "";
     detail.innerHTML = `
-    <h2 class="country-name text-4xl font-bold mb-2">${name.capital}</h2>
-    `;
-    console.log(name.capital);
-    // mainDetail.appendChild(detail);
+    <div class="country-details">
+        <h2 class="country-name text-2xl font-bold mb-4">Your Country Name: ${name.name.common}</h2>
+        <h2 class="text-2xl mb-4">Your City Name: ${name.capital}</h2>
+        <div class="flex">
+        <span class="text-2xl mb-4">Your Flag   &nbsp; &nbsp; </span>
+        <img src="${name.flags.png}" width="100px" alt=""></div>
+        <h2 class="text-2xl mb-4">Your Area: ${name.area}</h2>
+    </div>`;
+    mainDetail.appendChild(detail);
 }
 apiDataLoad();
